@@ -1,10 +1,13 @@
+# EMAIL SMS TEXT MESSAGING...AT&T WILL BE ENDING THIS SERVICE 06/15/25
+
+
 import smtplib, ssl
 from providers import PROVIDERS
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
-phone_number = os.getenv("NUMBER")
+phone_number = os.getenv("NUMBER")  # don't need country code
 email = os.getenv("EMAIL")
 password = os.getenv("PASSWORD")
 
@@ -20,6 +23,7 @@ def send_sms_via_email(
 ):
     sender_email, email_password = sender_credentials
     receiver_email = f'{number}@{PROVIDERS.get(provider).get("sms")}'
+    print(receiver_email)
 
     email_message = f"Subject:{subject}\nTo:{receiver_email}\n{message}"
 
